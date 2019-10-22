@@ -2,7 +2,8 @@ import { getMovies } from './omdb/omdb';
   
 const buildList = (movies: string[]) => {
   const cardContainer = document.getElementById("movie-container");
-  updateMovies(cardContainer);
+  // updateMovies(cardContainer);
+  $("#movie-container").empty();
   movies.forEach((movie:any) => {
     let card = document.createElement("div");
     card.classList.add("card");
@@ -14,9 +15,9 @@ const buildList = (movies: string[]) => {
   });
 }
 
-const updateMovies = (cardCont) => {
-  return cardCont.removeChild();
-}
+// const updateMovies = (cardCont) => {
+//   return cardCont.removeChild();
+// }
 
 const searchMovies = () => {
   const searchBar = document.getElementById("search-bar") as HTMLInputElement;
