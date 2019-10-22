@@ -1,0 +1,21 @@
+#movie-container {
+  display: grid;
+
+  .card {
+    height: $card-height;
+    width: 320px;
+    margin: $p-height;
+    border: 2px solid black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    p {
+      font-weight: bold;
+      text-align: left;
+      height: calc($p-height + 20px);
+      width: 100%;
+      margin-top: $card-height;
+    }
+  }
+}

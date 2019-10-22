@@ -1,44 +1,14 @@
-$card-height: 250px;
-$p-height: 20px;
+// vendor
+@import "./vendor/reset";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+// variables
+@import "./variables/structure";
 
-body {
-  background-color: orange;
-  width: 100vw;
+// components
+@import "./components/body";
+@import "./components/header";
+@import "./components/cards";
 
-  h1 {
-    font-size: 30px;
-    font-weight: bold;
-    margin: 20px auto;
-    text-align: center;
-  }
-}
 
-#movie-container {
-  display: grid;
 
-  .card {
-    height: $card-height;
-    width: 200px;
-    margin: $p-height;
-    // background-color: orange;
-    border: 2px solid black;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-
-    p {
-      font-weight: bold;
-      text-align: left;
-      height: calc($p-height + 20px);
-      width: 100%;
-      margin-top: $card-height;
-    }
-  }
-}
 
