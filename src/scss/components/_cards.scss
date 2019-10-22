@@ -1,19 +1,43 @@
+$card-height: 370px;
+$p-height: 60px;
+
 #movie-container {
-  display: grid;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 
   .card {
     height: $card-height;
-    width: 320px;
+    width: 280px;
     margin: $p-height;
-    border: 2px solid black;
+    // border: 2px solid black;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+
+    &.card-text {
+      opacity: 0;
+      text-align: center;
+    }
+
+    &:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      opacity: 0.2;
+      &.card-text {
+        opacity: 1;
+      }
+    }
+
+    
 
     p {
+      font-size: 20px;
       font-weight: bold;
       text-align: left;
-      height: calc($p-height + 20px);
+      padding: 5%;
+      height: $p-height;
       width: 100%;
       margin-top: $card-height;
     }
