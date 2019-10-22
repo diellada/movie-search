@@ -1,6 +1,30 @@
-#map {
-  display: block;
-  margin: 40px auto;
-  border: 2px solid black;
-  height: 500px;
-  width: 800px; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  background-color: orange;
+  width: 100vw; }
+  body h1 {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 20px auto;
+    text-align: center; }
+
+#movie-container {
+  display: grid; }
+  #movie-container .card {
+    height: 250px;
+    width: 200px;
+    margin: 20px;
+    border: 2px solid black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; }
+    #movie-container .card p {
+      font-weight: bold;
+      text-align: left;
+      height: calc($p-height + 20px);
+      width: 100%;
+      margin-top: 250px; }

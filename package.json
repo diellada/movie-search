@@ -10,7 +10,8 @@
     "tslint": "^5.13.0",
     "typescript": "^3.3.3333",
     "webpack": "^4.41.0",
-    "webpack-cli": "^3.3.9"
+    "webpack-cli": "^3.3.9",
+    "@types/jquery": "^3.3.31"
   },
   "scripts": {
     "test": "jest",

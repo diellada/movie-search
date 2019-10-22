@@ -1,19 +1,26 @@
-import { ILocation, initMap } from './maps/maps';
-import { getOnePokemon } from './pokemon/pokemon';
+import { getMovies } from './omdb/omdb';
+  
+const buildList = (movies) => {
+  const cardContainer = document.getElementById("movie-container");
+  movies.forEach(movie => {
+    let card = document.createElement("div");
+    card.classList.add("card");
+    let paragraph = document.createElement("p");
+    card.append(paragraph);
+    cardContainer.append(card);
+    card.style.backgroundImage = `url(${movie.Poster})`;
+    paragraph.innerHTML = `${movie.Title}, ${movie.Year}`;
+  });
+}
 
-const uluru: ILocation = {lat: -25.344, lng: 131.036};
+const searchMovies = () => {
+  const searchBar = document.getElementById("search-bar") as HTMLInputElement;
+  getMovies(searchBar.value).then((data) => {
+    let movieArray = data.Search;
+    buildList(movieArray);
+  });
+}
 
-initMap(uluru);
+const searchButton = document.getElementById("search-button");
+searchButton.addEventListener("click", searchMovies);
 
-// SIMPLE GET USING THE POKEAPI
-getOnePokemon(1).then((data) => {
-
-    // HERE'S YOUR RESPONSE DATA FOR POKEMON!!
-    console.log(data);
-
-    // Here's an example of a map to get the data we want from the object. I knew we taught that for a reason...
-    const abilities = data.abilities.map((ability) => {
-        return ability.ability.name;
-    })
-    console.log(abilities);
-});
