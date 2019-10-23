@@ -26,6 +26,7 @@ const dropDownListener = (movies, yearArray) => {
 const buildDropdown = (yearArray) => {
   yearArray.sort(function(a, b){return a-b});
   const yearDropdown = document.getElementById("dropdown-list");
+  $("#dropdown-list").empty();
   yearDropdown.style.display = "block";
   yearArray.forEach(year => {
     let listElement = document.createElement("option");
