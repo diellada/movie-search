@@ -14,7 +14,8 @@ h1 {
   background-color: #4B4E6D;
   font-family: $header-font;
   width: 40%;
-  padding: 10px;
+  height: 100%;
+  align-self: center;
 }
 
 #search {
@@ -30,28 +31,24 @@ h1 {
   #search-bar {
     font-size: 1.3em;
     margin-right: 10px;
-    width: 65%;
-    height: 80%;
+    width: 60%;
+    height: 70%;
     align-self: center;
-    border: 2px solid #4B4E6D;
+    border: 2px solid #B8336A;
     border-radius: 20px;
     background-color: transparent;
     color: #A4BFEB;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    &::placeholder {
+      color: #B8336A;
+      opacity: 0.5;
+      margin-left: 2%;
+    }
   }
 
-  #search-button {
-    
-    font-size: 2em;
-    border: none;
-    cursor: pointer;
-    background-color: transparent;
-
-    
-    &i {
-      font-size: 2em;
-      color: #4B4E6D;
-      width: 50px;
-      height: 50px;
-    }
+  #dropdown {
+    align-self: center;
+    width: 20%;
   }
 }

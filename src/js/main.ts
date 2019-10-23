@@ -73,5 +73,11 @@ const searchMovies = () => {
   });
 }
 
-const searchButton = document.getElementById("search-button");
-searchButton.addEventListener("click", searchMovies);
+const input = document.getElementById("search-bar");
+input.addEventListener("keypress", (event) => {
+  if (event.keyCode === 13) {
+    searchMovies();
+  }
+})
+// const searchButton = document.getElementById("search-button");
+// searchButton.addEventListener("click", searchMovies);
