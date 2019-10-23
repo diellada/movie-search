@@ -1,5 +1,7 @@
 import { getMovies } from './omdb/omdb';
 
+let yearArray = [];
+
 const updateMovies = (cardConts: HTMLElement) => {
   let rangeObj = new Range();
   rangeObj.selectNodeContents(cardConts);
@@ -14,23 +16,25 @@ const filterMovies = (movies, year) => {
   return filteredMovies;
 }
 
-const createCards = () => {
-  
+const buildDropdown = () => {
+  yearArray.sort(function(a, b){return a-b});
+  const yearDropdown = document.getElementById("dropdown-list");
+  yearDropdown.style.display = "block";
+  yearArray.forEach(year => {
+    let listElement = document.createElement("li");
+    listElement.classList.add("year-element");
+    yearDropdown.append(listElement);
+    listElement.innerText = year;
+  })
 }
-
-let yearArray = [];
-
 
 const buildList = (movies) => {
   const cardContainer = document.getElementById("movie-container");
   updateMovies(cardContainer);
   let year;
   let filteredMovies = year ?  filterMovies(movies, year) : movies;
-
   filteredMovies.forEach((movie) => {
     yearArray.push(movie.Year);
-    
-
 
     let card = document.createElement("div");
     card.classList.add("card");
@@ -42,12 +46,14 @@ const buildList = (movies) => {
   });
 }
 
+
 const searchMovies = () => {
   const searchBar = document.getElementById("search-bar") as HTMLInputElement;
 
   getMovies(searchBar.value).then((data) => {
     let movieArray: string[] = data.Search;
     buildList(movieArray);
+    buildDropdown();
   })
   .catch((error) => {
     console.log(error);
@@ -59,9 +65,6 @@ const searchMovies = () => {
 const searchButton = document.getElementById("search-button");
 searchButton.addEventListener("click", searchMovies);
 
-const yearDropdown = document.getElementById("dropdown-list");
-yearArray.forEach(year => {
-  let listElement = document.createElement("li");
-  yearDropdown.append(listElement);
-  listElement.innerText = year;
-});
+const filterButton = document.getElementById("filter-button");
+filterButton.addEventListener("click", buildDropdown);
+

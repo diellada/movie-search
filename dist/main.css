@@ -55,6 +55,18 @@ body {
   font-family: "Courier New", Courier, monospace;
   font-size: 16px; }
 
+#dropdown #filter-button {
+  padding: 3px;
+  cursor: pointer; }
+
+#dropdown #dropdown-list {
+  display: none;
+  background-color: red; }
+  #dropdown #dropdown-list li {
+    cursor: pointer; }
+    #dropdown #dropdown-list li:hover {
+      background-color: white; }
+
 nav {
   display: flex;
   flex-direction: row;
