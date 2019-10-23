@@ -1,7 +1,5 @@
 import { getMovies } from './omdb/omdb';
 
-// let yearArray = [];
-
 const updateMovies = (cardConts: HTMLElement) => {
   let rangeObj = new Range();
   rangeObj.selectNodeContents(cardConts);
@@ -57,7 +55,6 @@ const buildList = (movies, yearArray, yearSelected) => {
   });
 }
 
-
 const searchMovies = () => {
   const searchBar = document.getElementById("search-bar") as HTMLInputElement;
   let yearArray = [];
@@ -77,15 +74,3 @@ const searchMovies = () => {
 
 const searchButton = document.getElementById("search-button");
 searchButton.addEventListener("click", searchMovies);
-
-
-// const getYearFiltered = () => {
-
-// }
-
-// let listYears = document.querySelectorAll("list-element");
-
-// for (const year of listYears) {
-//   year.addEventListener("click", getYearFiltered);
-// }
-
