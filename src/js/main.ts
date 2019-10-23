@@ -1,6 +1,6 @@
 import { getMovies } from './omdb/omdb';
 
-let yearArray = [];
+// let yearArray = [];
 
 const updateMovies = (cardConts: HTMLElement) => {
   let rangeObj = new Range();
@@ -16,23 +16,34 @@ const filterMovies = (movies, year) => {
   return filteredMovies;
 }
 
-const buildDropdown = () => {
+const dropDownListener = (movies, yearArray) => {
+  const yearDropdown = document.getElementById("dropdown-list");  
+  yearDropdown.onchange = () => {
+    const selectedYear = (<HTMLSelectElement>yearDropdown).options[(<HTMLSelectElement>yearDropdown).selectedIndex].value;
+    console.log(selectedYear);
+    buildList(movies, yearArray, selectedYear);
+  }
+}
+
+const buildDropdown = (yearArray) => {
   yearArray.sort(function(a, b){return a-b});
   const yearDropdown = document.getElementById("dropdown-list");
   yearDropdown.style.display = "block";
   yearArray.forEach(year => {
-    let listElement = document.createElement("li");
+    let listElement = document.createElement("option");
     listElement.classList.add("year-element");
     yearDropdown.append(listElement);
     listElement.innerText = year;
   })
 }
 
-const buildList = (movies) => {
+const buildList = (movies, yearArray, yearSelected) => {
+  dropDownListener(movies, yearArray);
+
   const cardContainer = document.getElementById("movie-container");
   updateMovies(cardContainer);
-  let year;
-  let filteredMovies = year ?  filterMovies(movies, year) : movies;
+
+  let filteredMovies = yearSelected ?  filterMovies(movies, yearSelected) : movies;
   filteredMovies.forEach((movie) => {
     yearArray.push(movie.Year);
 
@@ -49,10 +60,13 @@ const buildList = (movies) => {
 
 const searchMovies = () => {
   const searchBar = document.getElementById("search-bar") as HTMLInputElement;
+  let yearArray = [];
+  let yearSelected;
 
   getMovies(searchBar.value).then((data) => {
     let movieArray: string[] = data.Search;
-    buildList(movieArray);
+    buildList(movieArray, yearArray, yearSelected);
+    buildDropdown(yearArray);
   })
   .catch((error) => {
     console.log(error);
