@@ -53,7 +53,6 @@ const searchMovies = () => {
   getMovies(searchBar.value).then((data) => {
     let movieArray: string[] = data.Search;
     buildList(movieArray);
-    buildDropdown();
   })
   .catch((error) => {
     console.log(error);
@@ -65,6 +64,14 @@ const searchMovies = () => {
 const searchButton = document.getElementById("search-button");
 searchButton.addEventListener("click", searchMovies);
 
-const filterButton = document.getElementById("filter-button");
-filterButton.addEventListener("click", buildDropdown);
+
+// const getYearFiltered = () => {
+
+// }
+
+// let listYears = document.querySelectorAll("list-element");
+
+// for (const year of listYears) {
+//   year.addEventListener("click", getYearFiltered);
+// }
 
