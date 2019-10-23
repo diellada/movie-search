@@ -1,6 +1,6 @@
 import { getMovies } from './omdb/omdb';
 
-const updateMovies = (cardConts) => {
+const updateMovies = (cardConts: HTMLElement) => {
   let rangeObj = new Range();
   rangeObj.selectNodeContents(cardConts);
   rangeObj.deleteContents();
@@ -16,26 +16,24 @@ const buildList = (movies) => {
     let card = document.createElement("div");
     card.classList.add("card");
     let paragraph = document.createElement("p");
-    // let cardText = document.createElement("div");
-    // cardText.classList.add("card-text");
     card.append(paragraph);
-    // card.append(cardText);
     cardContainer.append(card);
     card.style.backgroundImage = `url(${movie.Poster})`;
     paragraph.innerHTML = `${movie.Title} (${movie.Year})`;
-    // cardText.innerHTML = `${movie.Plot}`;
-    // console.log(cardContainer);
   });
 }
-
-
 
 const searchMovies = () => {
   const searchBar = document.getElementById("search-bar") as HTMLInputElement;
   getMovies(searchBar.value).then((data) => {
-    let movieArray:string[] = data.Search;
+    let movieArray: string[] = data.Search;
     buildList(movieArray);
     console.log(movieArray);
+  })
+  .catch((error) => {
+    console.log(error);
+    const cardContainer = document.getElementById("movie-container");
+    cardContainer.innerText = "Please enter a valid search parameter";
   });
 }
 
