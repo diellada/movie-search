@@ -4,50 +4,50 @@ nav {
   height: 80px;
   align-content: center;
   background-color: $dark-blue;
-}
 
-h1 {
-  font-size: 2.5em;
-  font-weight: bolder;
-  text-align: center;
-  color: $maroon;
-  font-family: $header-font;
-  width: 40%;
-  height: 100%;
-  align-self: center;
-  padding: 15px;
-}
-
-#search {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: center;
-  height: 100%;
-  width: 60%;
-
-  #search-bar {
-    font-size: 1.3em;
-    margin-right: 10px;
-    width: 60%;
-    height: 70%;
+  h1 {
+    font-size: 2.5em;
+    font-weight: bolder;
+    text-align: center;
+    color: $maroon;
+    font-family: $header-font;
+    width: 40%;
+    height: 100%;
     align-self: center;
-    border: none;
-    border-radius: 20px;
-    color: $light-blue;
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    background-color: $maroon;
-
-    &::placeholder {
-      color: $light-blue;
-      opacity: 0.9;
-      margin-left: 5%;
-    }
+    padding: 15px;
   }
 
-  #dropdown {
-    align-self: center;
-    width: 20%;
+  #search {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+    width: 60%;
+
+    #search-bar {
+      font-size: 1.3em;
+      margin-right: 10px;
+      width: 60%;
+      height: 70%;
+      align-self: center;
+      border: none;
+      border-radius: 20px;
+      color: $light-blue;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      background-color: $maroon;
+
+      &::placeholder {
+        color: $light-blue;
+        opacity: 0.9;
+        margin-left: 5%;
+      }
+    }
+
+    #dropdown {
+      align-self: center;
+      width: 20%;
+    }
   }
 }
