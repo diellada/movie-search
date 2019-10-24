@@ -57,7 +57,8 @@ body {
 
 #dropdown #dropdown-list {
   display: none;
-  background-color: red; }
+  background-color: red;
+  padding: 10px; }
   #dropdown #dropdown-list option {
     cursor: pointer; }
     #dropdown #dropdown-list option:hover {

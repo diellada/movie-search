@@ -3,14 +3,14 @@ nav {
   flex-direction: row;
   height: 80px;
   align-content: center;
-  background-color: #4B4E6D;
+  background-color: $dark-blue;
 }
 
 h1 {
   font-size: 2.5em;
   font-weight: bolder;
   text-align: center;
-  color: #B8336A;
+  color: $maroon;
   font-family: $header-font;
   width: 40%;
   height: 100%;
@@ -34,13 +34,13 @@ h1 {
     align-self: center;
     border: none;
     border-radius: 20px;
-    color: #A4BFEB;
+    color: $light-blue;
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
-    background-color: #B8336A;
+    background-color: $maroon;
 
     &::placeholder {
-      color: #A4BFEB;
+      color: $light-blue;
       opacity: 0.9;
       margin-left: 5%;
     }
